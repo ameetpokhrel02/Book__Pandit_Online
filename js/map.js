@@ -2,7 +2,7 @@ function initMap() {
     const mapElement = document.getElementById('map');
     if (!mapElement) return;
 
-    // Default center location (replace with your preferred location)
+    // Default center location (replace with your preferred location0
     const center = { lat: 19.0760, lng: 72.8777 }; // Mumbai coordinates
 
     const map = new google.maps.Map(mapElement, {
