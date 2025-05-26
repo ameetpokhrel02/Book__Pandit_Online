@@ -22,7 +22,7 @@ function initMap() {
         ]
     });
 
-    // Sample pandit locations (replace with actual data from backend)
+    // Sample pandits locations (replace with actual data from backend)
     const panditLocations = [
         {
             position: { lat: 19.0760, lng: 72.8777 },
