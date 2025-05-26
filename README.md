@@ -1,6 +1,10 @@
 # Book Pandit - Online Pandit Booking Platform
 
 A modern web platform for booking pandits for religious ceremonies and events.
+1. Desktop Screens:
+   ![image](https://github.com/user-attachments/assets/72aba8ed-3f81-4bc2-ad58-b67177769ad5)
+2. Mobile View:
+   ![image](https://github.com/user-attachments/assets/f8938d1f-e981-4c6d-a852-1d484e562c58)
 
 ## Features
 
@@ -12,10 +16,10 @@ A modern web platform for booking pandits for religious ceremonies and events.
 
 ## Tech Stack
 
-- React.js with TypeScript
+- Html,CSS,JS,Node.js
 - Tailwind CSS for styling
 - React Router for navigation
-- Firebase for authentication and database
+- MysqlSequiize for authentication and database
 - Modern UI/UX design
 
 ## Project Structure
