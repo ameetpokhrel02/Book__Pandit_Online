@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - BookPandit</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">BookPandit</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#pandits">Pandits</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="payment-success">
+        <div class="success-container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Payment Successful!</h1>
+            <p class="success-message">Your booking has been confirmed. Thank you for choosing BookPandit!</p>
+            
+            <div class="booking-details">
+                <h2>Booking Details</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="label">Booking ID:</span>
+                        <span class="value" id="booking-id"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Service:</span>
+                        <span class="value" id="service-name"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Pandit Name:</span>
+                        <span class="value" id="pandit-name"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Date:</span>
+                        <span class="value" id="booking-date"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Time:</span>
+                        <span class="value" id="booking-time"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Amount Paid:</span>
+                        <span class="value" id="amount-paid"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h2>Next Steps</h2>
+                <ul>
+                    <li>You will receive a confirmation email with all the details</li>
+                    <li>Our pandit will contact you shortly to discuss the ceremony</li>
+                    <li>You can track your booking status in your dashboard</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                <a href="#" class="btn btn-secondary" id="download-receipt">Download Receipt</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BookPandit</h3>
+                <p>Your trusted partner for all religious ceremonies and spiritual guidance.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#pandits">Pandits</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@bookpandit.com</p>
+                <p>Phone: +91 1234567890</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BookPandit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/payment-success.js"></script>
+</body>
+</html> 
