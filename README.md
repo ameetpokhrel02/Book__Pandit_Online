@@ -1,9 +1,9 @@
 # Book Pandit - Online Pandit Booking Platform
 ### Currently Working in this project..
 A modern web platform for booking pandits for religious ceremonies and events.
-##1. Desktop Screens:
+## 1.Desktop Screens:
    ![image](https://github.com/user-attachments/assets/72aba8ed-3f81-4bc2-ad58-b67177769ad5)
-##2. Mobile View:
+## 2.Mobile View:
    ![image](https://github.com/user-attachments/assets/f8938d1f-e981-4c6d-a852-1d484e562c58)
 
 ## Features
