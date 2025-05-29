@@ -7,6 +7,9 @@ A modern web platform for booking pandits for religious ceremonies and events.
 ## 2.Mobile View:
    ![image](https://github.com/user-attachments/assets/f8938d1f-e981-4c6d-a852-1d484e562c58)
 
+## 3.About Us Page
+image.png
+
 ## Features
 
 - User-friendly interface for booking pandits
