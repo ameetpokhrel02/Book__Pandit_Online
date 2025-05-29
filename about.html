@@ -10,7 +10,7 @@
     <style>
         .hero {
             position: relative;
-            height: 60vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,10 +49,24 @@
         }
 
         .mission-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .mission-text {
@@ -83,6 +97,8 @@
         }
 
         .value-card {
+            position: relative;
+            overflow: hidden;
             background: white;
             padding: 30px;
             border-radius: 15px;
@@ -93,6 +109,22 @@
 
         .value-card:hover {
             transform: translateY(-10px);
+        }
+
+        .value-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74,144,226,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .value-card:hover::after {
+            opacity: 1;
         }
 
         .value-card i {
@@ -114,6 +146,7 @@
         }
 
         .team-member {
+            position: relative;
             background: white;
             border-radius: 15px;
             overflow: hidden;
@@ -123,6 +156,22 @@
 
         .team-member:hover {
             transform: translateY(-10px);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(74,144,226,0.2) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-member:hover::before {
+            opacity: 1;
         }
 
         .team-member img {
@@ -148,10 +197,29 @@
         }
 
         .cta {
+            position: relative;
+            overflow: hidden;
             padding: 80px 0;
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
             color: white;
             text-align: center;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png');
+            opacity: 0.1;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
         }
 
         .cta h2 {
@@ -182,6 +250,134 @@
             .hero {
                 height: 50vh;
             }
+        }
+
+        /* Chat Box Styles */
+        .chat-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(calc(100% - 60px));
+        }
+
+        .chat-box.active {
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .chat-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        .chat-body {
+            height: 400px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .message.received {
+            background: #f0f2f5;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.sent {
+            background: #4a90e2;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: #357abd;
+        }
+
+        /* Enhanced UI Styles */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -217,8 +413,8 @@
         <section class="hero">
             <div class="video-background">
                 <video autoplay muted loop playsinline id="hero-video">
-                    <source src="videos/video5.mp4" type="video/mp4">
-                    <img src="images/hero-bg.jpg" alt="Hero Background">
+                    <source src="/vidoes/video5.mp4" type="video/mp4">
+                    <img src="images/logo/aarati.png" alt="Hero Background">
                 </video>
                 <div class="overlay"></div>
             </div>
@@ -311,6 +507,33 @@
         </section>
     </main>
 
+    <!-- Chat Box -->
+    <div class="chat-box">
+        <div class="chat-header">
+            <h3>Chat with Pandits</h3>
+            <button class="chat-toggle">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-messages">
+                <div class="message received">
+                    <p>Namaste! How can I help you today?</p>
+                </div>
+                <div class="message sent">
+                    <p>I would like to know about booking a pandit for a ceremony.</p>
+                </div>
+                <div class="message received">
+                    <p>Of course! We have experienced pandits available for various ceremonies. What type of ceremony are you planning?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -354,6 +577,46 @@
         AOS.init({
             duration: 1000,
             once: true
+        });
+
+        // Chat Box Functionality
+        const chatBox = document.querySelector('.chat-box');
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatInput = document.querySelector('.chat-input input');
+        const chatMessages = document.querySelector('.chat-messages');
+        const sendButton = document.querySelector('.chat-input button');
+
+        chatToggle.addEventListener('click', () => {
+            chatBox.classList.toggle('active');
+            chatToggle.classList.toggle('active');
+        });
+
+        function addMessage(message, isSent = true) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isSent ? 'sent' : 'received'}`;
+            messageDiv.innerHTML = `<p>${message}</p>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleSendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message);
+                chatInput.value = '';
+                
+                // Simulate response after 1 second
+                setTimeout(() => {
+                    addMessage('Thank you for your message. Our pandit will get back to you shortly.', false);
+                }, 1000);
+            }
+        }
+
+        sendButton.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSendMessage();
+            }
         });
     </script>
 </body>
