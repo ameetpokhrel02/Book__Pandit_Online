@@ -8,7 +8,8 @@ A modern web platform for booking pandits for religious ceremonies and events.
    ![image](https://github.com/user-attachments/assets/f8938d1f-e981-4c6d-a852-1d484e562c58)
 
 ## 3.About Us Page
-image.png
+![image](https://github.com/user-attachments/assets/950894ba-b94d-46b9-96fd-9e9ce85a8063)
+
 
 ## Features
 
