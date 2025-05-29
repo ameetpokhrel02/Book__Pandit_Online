@@ -6,6 +6,184 @@
     <title>About Us - Book Pandit</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .mission {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .mission-text {
+            padding: 20px;
+        }
+
+        .mission-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .values {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+
+        .team {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-member-info h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .team-member-info .role {
+            color: #4a90e2;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta .btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            background: white;
+            color: #4a90e2;
+            border: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta .btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .mission-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -18,10 +196,14 @@
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
-                <a href="about.html">About</a>
+                <a href="about.html" class="active">About</a>
+                <a href="our-pandits.html">Our Pandits</a>
                 <a href="contact.html">Contact</a>
                 <a href="login.html" class="btn btn-secondary">Login</a>
                 <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -35,15 +217,14 @@
         <section class="hero">
             <div class="video-background">
                 <video autoplay muted loop playsinline id="hero-video">
-                    <source src="/vidoes/video5.mp4" type="video/mp4">
-                    <!-- Fallback background image if video doesn't load -->
+                    <source src="videos/video5.mp4" type="video/mp4">
                     <img src="images/hero-bg.jpg" alt="Hero Background">
                 </video>
                 <div class="overlay"></div>
             </div>
-            <div class="container">
+            <div class="container" data-aos="fade-up">
                 <h1>About Book Pandit</h1>
-                <p>We are dedicated to making religious ceremonies accessible and convenient for everyone.</p>
+                <p>Connecting Tradition with Modern Convenience</p>
             </div>
         </section>
 
@@ -51,12 +232,12 @@
         <section class="mission">
             <div class="container">
                 <div class="mission-content">
-                    <div class="mission-text">
+                    <div class="mission-text" data-aos="fade-right">
                         <h2>Our Mission</h2>
-                        <p>At Book Pandit, our mission is to bridge the gap between traditional religious practices and modern convenience. We believe that everyone should have access to experienced and knowledgeable pandits for their religious ceremonies.</p>
-                        <p>We are committed to maintaining the authenticity of religious practices while making them more accessible through our digital platform.</p>
+                        <p>At Book Pandit, we're on a mission to revolutionize how people connect with religious ceremonies. We believe that everyone deserves access to experienced and knowledgeable pandits, regardless of their location or circumstances.</p>
+                        <p>Our platform bridges the gap between traditional practices and modern convenience, ensuring that sacred ceremonies are performed with authenticity and respect while making them accessible to all.</p>
                     </div>
-                    <div class="mission-image">
+                    <div class="mission-image" data-aos="fade-left">
                         <img src="images/logo/panditt1.png" alt="Our Mission">
                     </div>
                 </div>
@@ -66,22 +247,22 @@
         <!-- Values Section -->
         <section class="values">
             <div class="container">
-                <h2>Our Values</h2>
+                <h2 data-aos="fade-up">Our Core Values</h2>
                 <div class="values-grid">
-                    <div class="value-card">
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-check-circle"></i>
                         <h3>Authenticity</h3>
-                        <p>We ensure that all religious ceremonies are performed with complete authenticity and respect for traditions.</p>
+                        <p>We maintain the highest standards of traditional practices, ensuring every ceremony is performed with complete authenticity and respect.</p>
                     </div>
-                    <div class="value-card">
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-clock"></i>
                         <h3>Convenience</h3>
-                        <p>We make it easy to find and book experienced pandits for your ceremonies.</p>
+                        <p>Our digital platform makes it effortless to find and book experienced pandits, saving you time and ensuring peace of mind.</p>
                     </div>
-                    <div class="value-card">
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-handshake"></i>
                         <h3>Trust</h3>
-                        <p>We maintain the highest standards of trust and reliability in all our services.</p>
+                        <p>We build lasting relationships based on trust, reliability, and transparency with both our pandits and clients.</p>
                     </div>
                 </div>
             </div>
@@ -90,25 +271,31 @@
         <!-- Team Section -->
         <section class="team">
             <div class="container">
-                <h2>Our Team</h2>
+                <h2 data-aos="fade-up">Meet Our Leadership Team</h2>
                 <div class="team-grid">
-                    <div class="team-member">
+                    <div class="team-member" data-aos="fade-up" data-aos-delay="100">
                         <img src="images/logo/pandiitttt44.png" alt="Rahul Sharma">
-                        <h3>Rahul Sharma</h3>
-                        <p class="role">Founder & CEO</p>
-                        <p>Passionate about preserving and promoting traditional religious practices.</p>
+                        <div class="team-member-info">
+                            <h3>Rahul Sharma</h3>
+                            <p class="role">Founder & CEO</p>
+                            <p>With over 15 years of experience in religious ceremonies and digital innovation, Rahul leads our mission to make religious services accessible to all.</p>
+                        </div>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                         <img src="images/logo/pandit.png" alt="Priya Patel">
-                        <h3>Priya Patel</h3>
-                        <p class="role">Operations Manager</p>
-                        <p>Ensuring smooth operations and customer satisfaction.</p>
+                        <div class="team-member-info">
+                            <h3>Priya Patel</h3>
+                            <p class="role">Operations Manager</p>
+                            <p>Priya ensures seamless operations and exceptional customer experiences, bringing her expertise in service management to our platform.</p>
+                        </div>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-aos="fade-up" data-aos-delay="300">
                         <img src="images/logo/pandit22.png" alt="Amit Kumar">
-                        <h3>Amit Kumar</h3>
-                        <p class="role">Head of Pandit Relations</p>
-                        <p>Managing relationships with our network of pandits.</p>
+                        <div class="team-member-info">
+                            <h3>Amit Kumar</h3>
+                            <p class="role">Head of Pandit Relations</p>
+                            <p>Amit manages our network of pandits, ensuring quality and authenticity in all our religious services.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,10 +303,10 @@
 
         <!-- CTA Section -->
         <section class="cta">
-            <div class="container">
+            <div class="container" data-aos="fade-up">
                 <h2>Join Us in Preserving Traditions</h2>
-                <p>Be a part of our mission to make religious ceremonies accessible to everyone.</p>
-                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                <p>Be part of our journey to make religious ceremonies accessible to everyone while maintaining their sacred essence.</p>
+                <a href="contact.html" class="btn">Get in Touch</a>
             </div>
         </section>
     </main>
@@ -162,5 +349,12 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>
